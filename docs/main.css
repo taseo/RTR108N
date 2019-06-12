@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+h1 {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1400px
+}
+
+.text-center {
+  text-align: center;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.document-card {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #cfd8dc;
+}
+
+.document-card:last-of-type {
+  border-bottom: 0;
+}
+
+.document-link {
+  margin: 12px 12px 0 0;
+  padding: 12px;
+  border: 1px solid #eee;
+}
