@@ -17,8 +17,30 @@ const routes = {
 }
 
 const documentList = [
-    'Equations',
-    'Graph'
+    {
+	title: 'Vienādojumi',
+	fileName: 'equations',
+    },
+    {
+	title: 'Funkciju grafiska attēlošana',
+	fileName: 'graph'
+    },
+    {
+	title: 'Tāfeles skice',
+	fileName: 'blackboard'
+    },
+    {
+	title: 'Klases uzdevumus',
+	fileName: 'class_assignmen'
+    },
+    {
+	title: 'Matemātikas grāmatas izvilkums',
+	fileName: 'math_book_excerpt'
+    },
+    {
+	title: 'Angļu valodas kursa mājasdarbs',
+	fileName: 'eng_homework'
+    }
 ]
 
 function handleNavigation(event) {
@@ -57,11 +79,11 @@ function buildLatexPage(event) {
 
 	const documentName = document.createElement('DIV');
 
-	documentName.textContent = doc;
+	documentName.textContent = doc.title;
 
 	const documentLink = document.createElement('A');
 
-	documentLink.setAttribute('href', `/RTR108N/tex/${doc}.pdf`);
+	documentLink.setAttribute('href', `/RTR108N/tex/${doc.fileName}.pdf`);
 	documentLink.setAttribute('target', '_blank');
 	documentLink.setAttribute('download', '');
 	documentLink.textContent = 'pdf';
@@ -69,7 +91,7 @@ function buildLatexPage(event) {
 
 	const srcLink = document.createElement('A');
 
-	srcLink.setAttribute('href', `/RTR108N/tex/${doc}.tex`);
+	srcLink.setAttribute('href', `/RTR108N/tex/${doc.fileName}.tex`);
 	srcLink.setAttribute('target', '_blank');
 	srcLink.setAttribute('download', '');
 	srcLink.textContent = 'src';

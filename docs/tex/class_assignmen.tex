@@ -1,0 +1,91 @@
+\documentclass{extbook}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+
+\geometry{
+	top=50mm,
+	right=50mm,
+	left=50mm
+}
+
+\newcommand{\resetWhitespace}{
+	\setlength{\abovedisplayskip}{4pt}
+	\setlength{\belowdisplayskip}{4pt}
+}
+
+\pagestyle{fancyplain}
+\fancyhf{}
+\fancyhead[C]{\small\textit{Theory of information}}
+\fancyhead[L]{\small{292}}
+\renewcommand{\headrulewidth}{0pt}
+
+\setlength{\headsep}{-10pt}
+
+\begin{document}
+
+\begin{center}
+
+\end{center}
+
+It is possible to break a choice of one event from the set $\{E_{1}, E_{2}, \dots,$ $E_{n}\}$ into two steps: at first, to choose a group where the chosen event is and then to choose the event from the already chosen group. By Axiom A3, this gives us the following equality
+\begin{align*}
+	\label{eq:3.5.10}
+	\resetWhitespace
+	H(1/n, 1/n, \dots , 1/n) = H(p_{1}, p_{2}, \dots ,p_{n}) + \sum\nolimits_{i=1}^{k}p_{i}H(1/n_{i}, 1/n_{i}, \dots ,
+	1/n_{i})                                                                                                           \\
+	\tag{3.5.10}
+\end{align*}
+
+It is proved that
+\begin{equation*}
+	\resetWhitespace
+	H(1/n, 1/n, \dots , 1/n) = \log_{2}n
+\end{equation*}
+
+\noindent and thus,
+\begin{equation*}
+	\resetWhitespace
+	H(1/n_{i}, 1/n_{i}, \dots , 1/n_{i}) = \log_{2}n_{i}
+\end{equation*}
+
+\noindent for all $i=1, 2, 3, \dots , n$.
+
+This and the equality (\ref{eq:3.5.10}), give us
+\begin{equation}
+	\resetWhitespace
+	\log_{2}n = H(p_{1}, p_{2}, \dots , p_{n}) + \sum\nolimits_{i=1}^{k}p_{i}\log_{2}n_{i}
+	\tag{3.5.11}
+\end{equation}
+
+Consequently, we have
+\setlength{\abovedisplayskip}{0pt}
+\begin{flalign*}
+	\resetWhitespace
+	H&(p_{1}, p_{2}, \dots , p_{n}) = \log_{2}n - \sum\nolimits_{i=1}^{k}p_{i}\log_{2}n_{i}\\
+	& = - \sum\nolimits_{i=1}^{k}p_{i}log_{2}n_{i}/n = - \sum\nolimits_{i=1}^{k}p_{i}\log_{2}p_{i}
+\end{flalign*}
+
+This proves formula (3.2.4) for all rational numbers. As by Axiom A1, $H(p_{i}, p_{2}, \dots , p_{n})$ is a continuous function and the set of all rational numbers is dense in the set of all real numbers, we have
+\begin{equation*}
+	\resetWhitespace
+	H(p_{i}, p_{2}, \dots , p_{n}) = - \sum\nolimits_{i=1}^{k}p_{i} \log_{2}p_{i}
+\end{equation*}
+
+\noindent for all real numbers.
+
+Theorem is proved.
+
+Of we take Axiom A4 away, we have a weaker result.
+
+\textbf{Theorem 3.5.2} (Shannon, 1948). The only function that satisfies Axioms A1-A3 and A5 is the information entropy $H(p_{i}, p_{2}, \dots , p_{n})$ determined by the formula
+\begin{equation}
+	\resetWhitespace
+	H(p_{i}, p_{2}, \dots , p_{n}) = K\sum\nolimits_{i=1}^{k}p_{i} \log_{2}p_{i}
+	\tag{3.5.12}
+\end{equation}
+
+\noindent where K is an arbitrary constant.
+
+\end{document}

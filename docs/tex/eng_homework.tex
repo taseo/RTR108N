@@ -1,0 +1,255 @@
+\documentclass[a4paper, twoside, 12pt]{book}
+\usepackage[utf8]{inputenc}
+
+\usepackage[
+    top=30mm,
+    right=20mm,
+    bottom=20mm,
+    left=30mm,
+    marginparwidth=0pt,
+    marginparsep=0pt,
+    headsep=10mm,
+    headheight=15pt,
+    footskip=0pt,
+    asymmetric
+]{geometry}
+
+\usepackage{tabu}
+\usepackage[tableposition=top]{caption}
+\captionsetup[table]{labelformat=simple, labelsep=none, justification=raggedleft, singlelinecheck=false}
+\renewcommand{\arraystretch}{1.3}
+
+\setlength\parindent{1cm}
+\linespread{1.25}
+
+% prevent word break
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rhead{\textsc{\thepage}}
+
+\usepackage{mathptmx}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+{\centering
+	\MakeUppercase{\textbf{Riga Technical University}} \par
+	\vspace{6pt}
+	\MakeUppercase{\textbf{Faculty of electronics and telecommunications}} \par
+	\vspace{200pt}
+	{\large \textbf{English language course homework}} \par
+}
+
+\vspace{120pt}
+
+\hfill Author: Artūrs Ipatenko
+
+\hfill Course number: NEBM0
+
+\hfill Student card number: 183NEB001
+
+\vfill{}
+{\centering \textbf{Riga 2019} \par}
+
+\newpage
+
+{\noindent \textbf{Radio}}
+\vspace{6pt}
+
+Radio ir signalizācijas vai sakaru tehnoloģija, izmantojot radio viļņus. Radio viļņi ir elektromagnētiskie viļņi ar frekvenci no 30 herciem (Hz) līdz 300 gigaherciem. (GHz). Tos ģenerē elektroniska ierīce, ko sauc par raidītāju, kas savienots ar antenu, kura izstaro viļņus, kurus saņem radio uztvērējs, kas savienots ar citu antenu. Radio tiek ļoti plaši izmantots mūsdienu tehnoloģijās, radiosakaros, radaros, radionavigācijā, tālvadībā, attālos mērījumos un citos pielietojumos.
+
+Radio sakariem, ko pielieto radio un televīzijas apraidei, mobilajiem tālruņiem, divvirzienu radio, bezvadu tīkliem un satelītu sakariem starp daudziem citiem izmantošanas veidiem, radio viļņi tiek izmantoti, lai pārraidītu informāciju cauri telpai no raidītāja uz uztvērēju, modulējot radio signālu (pārveidojot nosūtāmo informācijas signālu uz radio viļņiem, mainot dažus viļņa aspektus) raidītajā.
+
+Radaros, ko izmanto objektu kā, piemēram, lidaparātu, kuģu, kosmosa kuģu un raķešu atrašanās vietas noteikšanai un izsekošanai, radara izstarotais radioviļņu staru kūlis atstarojas no mērķa objekta un atstarotie viļņi atklāj šī objekta atrašanās vietu. Radionavigācijas sistēmās kā, piemēram, GPS un VOR, mobilais uztvērējs saņem radio signālus no navigācijas radio bākām, kuru atrašanās vieta ir zināma, un, precīzi mērot radio viļņu ierašanās laiku, uztvērējs var aprēķināt savu pozīciju uz zemeslodes. Bezvadu tālvadības ierīcēs kā, piemēram, bezpilota lidaparātos, garāžu durvju atvērējos un bez atslēgas ieejas sistēmas, no kontrolierīces pārraidītie radio signāli vada tālvadības ierīces darbību.
+
+\vspace{6pt}
+{\noindent \textbf{Radiotehnoloģija}}
+\vspace{6pt}
+
+Radio viļņus izstaro elektriskie lādiņi, kas tiek paātrināti. Tos rada mākslīgi ar laikā mainīgu elektrisko strāvu, kas sastāv no elektroniem, kuri plūst uz priekšu un atpakaļ metāla vadītājā, ko sauc par antenu. Pārraidei, raidītājs ģenerē maiņstrāvu pielietotajā radio frekvencē, kas tiek novirzīta uz antenu.
+
+Antena izstaro strāvas jaudu kā radio viļņus. Kad viļņi nokļūst radio uztvērēja antenā, tie iesvārsta metālā esošos elektronus uz priekšu un atpakaļ, ierosinot nelielu maiņstrāvu. Radiouztvērējs, kas pievienots uztverošajai antenai, uztver svārstību radīto strāvu un to pastiprina.
+
+Virzoties tālāk no raidošās antenas, radioviļņi izplatās tā, ka to signāla stiprums (intensitāte vatos uz kvadrātmetru) samazinās, tādējādi radio pārraidi var uztvert tikai ierobežotā raidītāja diapazonā, attālumā, kas atkarīgs no raidītāja jaudas, antenas starojuma veida, uztvērēja jutīguma, trokšņu līmeņa un traucējumiem starp raidītāju un uztvērēju.
+
+Bezvirziena antena pārraida vai saņem radioviļņus visos virzienos, bet virziena antena vai augsta pastiprinājuma antena pārraida radioviļņus starā, kas vērsts noteiktā virzienā vai saņem viļņus tikai no viena virziena. Radioviļņi pārvietojas caur vakuumu gaismas ātrumā un gaisā ļoti tuvu gaismas ātrumam, tāpēc radioviļņu viļņa garums, attālums metros starp blakus esošo viļņu virsotnēm, ir apgriezti proporcionāls tā frekvencei.
+
+\vspace{6pt}
+{\noindent \textbf{Regulējums}}
+\vspace{6pt}
+
+Radioviļņi ir daudzu lietotāju kopīgs resurss. Divi radioraidītāji vienā un tajā pašā apgabalā, kurā mēģina raidīt vienā frekvencē, traucēs viens otram, radot apgrūtinātu uztveršanu, tāpēc neviena pārraide netiks saņemta skaidri. Radiosakaru traucējumi var radīt ne tikai lielas ekonomiskas izmaksas, bet apdraudēt dzīvību (piemēram, avārijas sakaru vai gaisa satiksmes vadības traucējumu gadījumā).
+
+Lai novērstu traucējumus starp dažādiem lietotājiem, radioviļņu emisijas ir stingri reglamentētas valstu tiesību aktos, kurus koordinē starptautiska organizācija – Starptautiskā Telekomunikāciju savienība (ITU), kas radiofrekvenču spektrā piešķir joslas dažādiem lietojumiem. Radio raidītājiem jābūt valdības licencētiem dažādās licences klasēs atkarībā no izmantošanas, un tiem jābūt ierobežotiem noteiktās frekvencēs un jaudas līmeņos.
+
+Dažās klasēs, piemēram, radio un televīzijas apraides stacijās, raidītājam tiek piešķirts unikāls identifikators, kas sastāv no burtu un ciparu virknes, ko sauc par izsaukuma signālu, kurš jāizmanto visās pārraidēs. Radio operatoram jābūt valdības licencei, kas iegūta, veicot testu, kurā pierādītas atbilstošas tehniskās un juridiskās zināšanas par drošu radio darbību.
+
+Izņēmumi no iepriekš minētajiem noteikumiem ļauj sabiedrībai nelicencēti izmantot mazjaudas īsās darbības raidītājus patēriņa precēs, piemēram, mobilajos tālruņos, bezvadu tālruņos, bezvadu ierīcēs, rācijas ierīcēs, pilsoņu joslu radio, bezvadu mikrofonos, garāžas durvju atvērējos un bērnu uzraudzības monitoros. Daudzas no šīm ierīcēm izmanto ISM joslas, kas visā radiofrekvenču spektrā ir rezervētas nelicencētai lietošanai. Lai gan tās var tikt darbinātas bez licences, tāpat kā visām radioiekārtām, šīm ierīcēm parasti pirms pārdošanas ir jāsaņem tipa apstiprinājums.
+
+\vfill{}
+\pagebreak
+
+{\noindent \textbf{Radio}}
+\vspace{6pt}
+
+Radio is the technology of signalling or communicating using radio waves. Radio waves are electromagnetic waves of frequency between 30 hertz (Hz) and 300 gigahertz (GHz). They are generated by an electronic device called a transmitter connected to an antenna which radiates the waves, and received by a radio receiver connected to another antenna. Radio is very widely used in modern technology, in radio communication, radar, radio navigation, remote control, remote sensing and other applications.
+
+In radio communication, used in radio and television broadcasting, cell phones, two-way radios, wireless networking and satellite communication among numerous other uses, radio waves are used to carry information across space from a transmitter to a receiver, by modulating the radio signal (impressing an information signal on the radio wave by varying some aspect of the wave) in the transmitter.
+
+In radar, used to locate and track objects like aircraft, ships, spacecraft and missiles, a beam of radio waves emitted by a radar transmitter reflects off the target object, and the reflected waves reveal the object's location.
+In radio navigation systems such as GPS and VOR, a mobile receiver receives radio signals from navigational radio beacons whose position is known, and by precisely measuring the arrival time of the radio waves the receiver can calculate its position on Earth. In wireless remote control devices like drones, garage door openers, and keyless entry systems, radio signals transmitted from a controller device control the actions of a remote device.
+
+\vspace{6pt}
+{\noindent \textbf{Radio technology}}
+\vspace{6pt}
+
+Radio waves are radiated by electric charges undergoing acceleration. They are generated artificially by time varying electric currents, consisting of electrons flowing back and forth in a metal conductor called an antenna. In transmission, a transmitter generates an alternating current of radio frequency which is applied to an antenna.
+
+The antenna radiates the power in the current as radio waves. When the waves strike the antenna of a radio receiver, they push the electrons in the metal back and forth, inducing a tiny alternating current. The radio receiver connected to the receiving antenna detects this oscillating current and amplifies it.
+
+As they travel further from the transmitting antenna, radio waves spread out so their signal strength (intensity in watts per square meter) decreases, so radio transmissions can only be received within a limited range of the transmitter, the distance depending on the transmitter power, antenna radiation pattern, receiver sensitivity, noise level, and presence of obstructions between transmitter and receiver.
+
+An omnidirectional antenna transmits or receives radio waves in all directions, while a directional antenna or high gain antenna transmits radio waves in a beam in a particular direction, or receives waves from only one direction. Radio waves travel through a vacuum at the speed of light, and in air at very close to the speed of light, so the wavelength of a radio wave, the distance in meters between adjacent crests of the wave, is inversely proportional to its frequency.
+
+\vspace{6pt}
+{\noindent \textbf{Regulation}}
+\vspace{6pt}
+
+The airwaves are a resource shared by many users. Two radio transmitters in the same area that attempt to transmit on the same frequency will interfere with each other, causing garbled reception, so neither transmission may be received clearly. Interference with radio transmissions can not only have a large economic cost, it can be life threatening (for example, in the case of interference with emergency communications or air traffic control).
+
+To prevent interference between different users, the emission of radio waves is strictly regulated by national laws, coordinated by an international body, the International Telecommunications Union (ITU), which allocates bands in the radio spectrum for different uses. Radio transmitters must be licensed by governments, under a variety of license classes depending on use, and are restricted to certain frequencies and power levels.
+
+In some classes, such as radio and television broadcasting stations, the transmitter is given a unique identifier consisting of a string of letters and numbers called a callsign, which must be used in all transmissions. The radio operator must hold a government license, obtained by taking a test demonstrating adequate technical and legal knowledge of safe radio operation.
+
+Exceptions to the above rules allow the unlicensed operation by the public of low power short range transmitters in consumer products such as cell phones, cordless phones, wireless devices, walkie-talkies, citizens band radios, wireless microphones, garage door openers, and baby monitors. Many of these devices use the ISM bands, a series of frequency bands throughout the radio spectrum reserved for unlicensed use. Although they can be operated without a license, like all radio equipment these devices generally must be type-approved before sale.
+
+\vfill{}
+
+\pagebreak
+
+{\noindent \textbf{Irregular verbs}}
+\vspace{6pt}
+
+\begin{table}[!htbp]
+	\caption{\\Twenty irregular verbs}
+	\vspace{-15pt}
+	\begin{center}
+		\begin{tabu} to 0.9\textwidth { | X[l] | X[l] | X[l] | }
+			\hline
+			\textbf{Base Form} & \textbf{Past Simple} & \textbf{Past Participle} \\
+			\hline
+			Awake              & Awoke                & Awoken                   \\
+			\hline
+			Begin              & Began                & Begun                    \\
+			\hline
+			Bite               & Bit                  & Bitten                   \\
+			\hline
+			Choose             & Chose                & Chosen                   \\
+			\hline
+			Do                 & Did                  & Done                     \\
+			\hline
+			Draw               & Drew                 & Drawn                    \\
+			\hline
+			Eat                & Ate                  & Eaten                    \\
+			\hline
+			Fall               & Fell                 & Fallen                   \\
+			\hline
+			Fly                & Flew                 & Flown                    \\
+			\hline
+			Forget             & Forgot               & Forgotten                \\
+			\hline
+			Freeze             & Froze                & Frozen                   \\
+			\hline
+			Go                 & Went                 & Gone /\ Been             \\
+			\hline
+			Know               & Knew                 & Known                    \\
+			\hline
+			Mistake            & Mistook              & Mistaken                 \\
+			\hline
+			Ride               & Rode                 & Ridden                   \\
+			\hline
+			Ring               & Rang                 & Rung                     \\
+			\hline
+			See                & Saw                  & Seen                     \\
+			\hline
+			Take               & Took                 & Taken                    \\
+			\hline
+			Shake              & Shook                & Shaken                   \\
+			\hline
+			Write              & Wrote                & Written                  \\
+			\hline
+		\end{tabu}
+	\end{center}
+\end{table}
+
+\vfill{}
+
+\pagebreak
+
+{\noindent \textbf{List of fifty words}}
+\vspace{6pt}
+
+\begin{enumerate}
+	\setlength{\itemsep}{0pt}
+	\item Acceleration -  Paātrinājums
+	\item Adjacent - Blakus
+	\item Allocate - Piešķirt
+	\item Altitude - Augstums
+	\item Array - Masīvs
+	\item Band - Josla / Grupa
+	\item Beacon - Bāka / Radiobāka
+	\item Beam - Stars
+	\item Bidirectional - Divvirzienu
+	\item Bind - Saistīt
+	\item Broadband - Platjoslas pakalpojumi
+	\item Broadcast - Pārraidīt
+	\item Callsign - Izsaukuma signāls
+	\item Carrier - Nesējs
+	\item Cellular - Šūnveida
+	\item Coherent - Saistīts
+	\item Continuous - Nepārtraukts
+	\item Downlink - Lejupsaite
+	\item Emit - Izstarot
+	\item Encryption - Šifrēšana
+	\item Impedance - Pretestība
+	\item Link - Saite
+	\item Magnitude - Lielums
+	\item Mainframe - Lieldators
+	\item Obfuscate - Apgrūtināt / Aptumšot
+	\item Obstruction - Kavēklis / Traucēklis
+	\item Pattern - Veids / Modelis
+	\item Peak - Virsotne
+	\item Propagation - Izplatīšanās
+	\item Proximity - Tuvums
+	\item Radiate - Izstarot / Starot
+	\item Range - Amplitūda / Diapazons
+	\item Rate - Likme / Ātrums
+	\item Reception - Uzņemšana / Uztveršana
+	\item Reflect - Atstarot
+	\item Reinforce - Pastiprināt
+	\item Remote - Attāls
+	\item Restrict - Ierobežot
+	\item Sensitivity - Jutīgums
+	\item Sequence - Secība
+	\item Stream - Straume
+	\item Surveilance - Novērošana
+	\item Terrestrial - Zemes / Sauszemes
+	\item Thread - Pavediens
+	\item Transceiver - Radiouztvērējs
+	\item Transfer - Pārvietošana
+	\item Transmitter - Raidītājs
+	\item Transponder - Retranslators
+	\item Uplink - Augšupsaite
+	\item Velocity - Ātrums
+\end{enumerate}
+
+\vfill{}
+\end{document}

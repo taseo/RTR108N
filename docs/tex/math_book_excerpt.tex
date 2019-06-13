@@ -1,0 +1,250 @@
+\documentclass[9pt, twoside]{extbook}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+
+% set paper size (based on pdf document)
+\usepackage[
+    paperwidth=5.2in,
+    paperheight=8.1in,
+    top=0.4in,
+    right=0.52in,
+    bottom=0.4in,
+    left=0.52in,
+    footskip=0.2in,
+    headsep=0.3in,
+    bindingoffset=0in,
+    nomarginpar,
+    includehead,
+    includefoot
+]{geometry}
+
+% define custom color for text box background
+\usepackage{xcolor}
+
+\definecolor{boxGray}{RGB}{230, 230, 230}
+
+% define custom command to draw text box
+\usepackage{tcolorbox}
+
+\newcommand{\textbox}[1]{
+	\begin{tcolorbox}[
+			colback=boxGray,
+			colframe=black,
+			arc=0pt,
+			top=0pt,
+			right=0pt,
+			bottom=0pt,
+			left=0pt,
+			boxrule=0.2pt
+		]
+		\small$\blacktriangleright$\textit{#1}
+	\end{tcolorbox}
+}
+
+% set page, chapter and section counters
+\setcounter{page}{957}
+\setcounter{chapter}{26}
+\setcounter{section}{14}
+
+% set equation counter
+\setcounter{equation}{55}
+
+% set header style
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead[CO]{\rule[-2ex]{0pt}{0ex} \MakeUppercase{\small{\thesection~the metric tensor}}}
+\fancyhead[CE]{\rule[-2ex]{0pt}{0ex} \MakeUppercase{\small{Tensors}}}
+
+\renewcommand{\headrulewidth}{0.1pt}
+
+\setlength{\headheight}{16pt}
+
+%set footer style
+\renewcommand*{\thepage}{\footnotesize{\arabic{page}}}
+
+% define command to change font to Latin Modern
+\usepackage{lmodern}
+\usepackage[euler-digits]{eulervm}
+
+\newcommand{\latinmodern}[1]{\textsf{\itshape #1}}
+
+% set font family
+% original document uses Garamond font
+% substitute font was used, causing minor differences when compared to the original document
+\usepackage{newtxtext,newtxmath}
+
+% set section style
+\usepackage{titlesec}
+
+\titleformat{\section}[display]{\normalfont\bfseries\centering}{}{0pt}{\normalsize}
+\titlespacing{\section}{0pt}{0pt}{10pt}
+
+\renewcommand{\sectionmark}[1]{\markboth{}{}}
+
+\begin{document}
+
+\vspace*{\fill}
+
+\section{\thesection~The metric tensor}
+
+\noindent Any particular curvilinear coordinate system is completely characterised at each point in space by the nine quantities
+\begin{equation}
+	\label{eq:0}
+	g_{ij} = \boldsymbol{e}_{i} \cdot \boldsymbol{e}_{j},
+\end{equation}
+
+\noindent which, as we will show, are the covariant components of a symmetric second-order tensor $\boldsymbol{g}$ called the \textit{metric tensor}.
+
+Since an infinitesimal vector displacement can be written as $d\boldsymbol{r} = du^{i}\boldsymbol{e}_{i}$, we find that the square of the infinitesimal arc length $(ds)^{2}$ can be written in terms of the metric tensor as
+\begin{equation}
+	\label{eq:1}
+	(ds)^{2} = d\boldsymbol{r} \cdot d\boldsymbol{r} = du^{i}\boldsymbol{e}_{i} \cdot du^{j}\boldsymbol{e}_{j} = g_{ij}du^{i}du^{j}.
+\end{equation}
+
+\noindent It may further be shown that the volume element $dV$ is given by
+\begin{equation}
+	\label{eq:2}
+	dV = \sqrt{g} \ du^{1}du^{2}du^{3},
+\end{equation}
+
+\noindent where $g$ is the determinant of the matrix $[g_{ij}]$, which has the covariant components of the metric tensor as its elements.
+
+If we compare equations (\ref{eq:1}) and (\ref{eq:2}) with the analogous ones in section 10.10 then we see that in the special case where the coordinate system is orthogonal (so that $\boldsymbol{e}_{i} \cdot \boldsymbol{e}_{j} = 0$ for $i \neq j$) the metric tensor can be written in terms of the coordinate-system scale factors $h_{i}, i = 1, 2, 3$ as
+\begin{align*}
+	g_{ij} = \begin{cases} h_{i}^{2} & i = j, \\ 0& i \neq j. \end{cases}
+\end{align*}
+
+\noindent Its determinant is then given by $g = h^{2}_{1}h^{2}_{2}h^{2}_{3}$.
+
+\pagebreak
+
+\textbox{Calculate the elements $g_{ij}$ of the metric tensor for cylindrical polar coordinates. Hence find the square of the infinitesimal arc length $(ds)^{2}$ and the volume $dV$ for this coordinate system.}
+
+\noindent \small As discussed in section 10.9, in cylindrical polar coordinates $(u^{1},u^{2},u^{3}) = (\rho,\phi,z)$ and so the position vector $\boldsymbol{r}$ of any point $P$ may be written
+\begin{equation*}
+	\boldsymbol{r} = \rho \cos{\phi} \ \boldsymbol{i} + \rho \sin{\phi} \ \boldsymbol{j} + z \ \boldsymbol{k}.
+\end{equation*}
+
+\noindent From this we obtain the (covariant) basis vectors:
+\begin{align}
+	  & \boldsymbol{e}_{1} = \frac{\partial\boldsymbol{r}}{\partial\rho} \ = \ \cos{\phi} \ \boldsymbol{i} + \sin{\phi} \ \boldsymbol{j}; \nonumber \\
+	  & \boldsymbol{e}_{2} = \frac{\partial\boldsymbol{r}}{\partial\phi} \ = \ - \rho \sin{\phi} \ i + \rho \cos{\phi} \ \boldsymbol{j}; \nonumber \\
+	  & \boldsymbol{e}_{3} = \frac{\partial\boldsymbol{r}}{\partial z} \ = \ \boldsymbol{k}.
+\end{align}
+
+Thus the components of the metric tensor $[g_{ij}]=[\boldsymbol{e}_{i} \cdot \boldsymbol{e}_{j}]$ are found to be
+\begin{equation}
+	\label{eq:3}
+	\latinmodern{G} = [g_{ij}] =
+	\begin{pmatrix}
+		\hspace{2mm} 1 & 0      & 0 \hspace{2mm} \\
+		\hspace{2mm} 0 & \rho^2 & 0 \hspace{2mm} \\
+		\hspace{2mm} 0 & 0      & 1 \hspace{2mm}
+	\end{pmatrix},
+\end{equation}
+
+\noindent from which we see that, as expected for an orthogonal coordinate system, the metric tensor \linebreak is diagonal, the diagonal elements being equal to the squares of the scale factors of the \linebreak coordinate system.
+
+From (\ref{eq:1}), the square of the infinitesimal arc length in this coordinate system is given by
+\begin{equation*}
+	(ds)^{2} = g_{ij}du^{i}du^{j} = (d\rho)^{2} + \rho^{2}(d\phi)^{2} +(dz)^{2},
+\end{equation*}
+
+\noindent and, using (\ref{eq:2}), the volume element is found to be
+\begin{equation*}
+	dV = \sqrt{g} \ du^{1}du^{2}du^{3} = \rho \ d\rho \ d\phi \ dz.
+\end{equation*}
+
+\noindent These expressions are identical to those derived in section 10.9. $\blacktriangleleft$
+
+\vspace{2mm}
+
+\normalsize We may also express the scalar product of two vectors in terms of the metric tensor:
+\begin{equation}
+	\label{eq:4}
+	\boldsymbol{a} \cdot \boldsymbol{b} = a^{i}\boldsymbol{e}_{i} \cdot b^{j}\boldsymbol{e}_{j} = g_{ij}a^{i}b^{j},
+\end{equation}
+
+\noindent where we have used the contravariant components of the two vectors. Similarly, using the covariant components, we can write the same scalar product as
+\begin{equation}
+	\boldsymbol{a} \cdot \boldsymbol{b} = a_{i}\boldsymbol{e}^{i} \cdot b_{j}\boldsymbol{e}^{j} = g^{ij}a_{i}b_{j},
+\end{equation}
+
+\noindent where we have defined the nine quantities $g^{ij} = \boldsymbol{e}^{i} \cdot \boldsymbol{e}^{j}$. As we shall show, they form the contravariant components of the metric tensor $\boldsymbol{g}$ and are, in general, different from the quantities $g_{ij}$. Finally, we could express the scalar product in terms of \linebreak the contravariant components of one vector and the covariant components of the other,
+\begin{equation}
+	\boldsymbol{a} \cdot \boldsymbol{b} = a_{i}\boldsymbol{e}^{i} \cdot b^{j}\boldsymbol{e}_{j} = a_{i}b^{j}\delta^{i}_{j} = a_{i}b^{i},
+\end{equation}
+
+\pagebreak
+
+\noindent where we have used the reciprocity relation (26.54). Similarly, we could write
+\begin{equation}
+	\label{eq:5}
+	\boldsymbol{a} \cdot \boldsymbol{b} = a^{i}\boldsymbol{e}_{i} \cdot b_{j}\boldsymbol{e}^{j} = a^{i}b_{j}\delta^{j}_{i} = a^{i}b_{i}.
+\end{equation}
+
+By comparing the four alternative expressions (\ref{eq:4})–(\ref{eq:5}) for the scalar \linebreak product of two vectors we can deduce one of the most useful properties of \linebreak the quantities $g_{ij}$ and $g^{ij}$. Since $g_{ij}a^{i}b^{j} = a^{i}b_{i}$ holds for any arbitrary vector components $a^{i}$, it follows that
+\begin{equation*}
+	g_{ij}b^{j} = b_{i},
+\end{equation*}
+
+\noindent which illustrates the fact that the covariant components $g_{ij}$ of the metric tensor \linebreak can be used to \textit{lower} an \textit{index}. In other words, it provides a means of obtaining \linebreak the covariant components of a vector from its contravariant components. By a similar argument, we have
+\begin{equation*}
+	g^{ij}b_{j} = b^{i},
+\end{equation*}
+
+\noindent so that the contravariant components $g^{ij}$ can be used to perform the reverse \linebreak operation of \textit{raising} an \textit{index}.
+
+It is straightforward to show that the contravariant and covariant basis vectors, $\boldsymbol{e}^{i}$ and $\boldsymbol{e}_{i}$ respectively, are related in the same way as other vectors, i.e. by
+\begin{equation*}
+	\boldsymbol{e}^{i} = g^{ij}\boldsymbol{e}_{j}\qquad and\qquad \boldsymbol{e}_{i} = g_{ij}\boldsymbol{e}^{j}.
+\end{equation*}
+
+\noindent We also note that, since $\boldsymbol{e}_{i}$ and $\boldsymbol{e}^{i}$ are reciprocal systems of vectors in three-dimensional space (see chapter 7), we may write
+\begin{equation*}
+	\boldsymbol{e}^{i} = \frac{\boldsymbol{e}_{j} \times \boldsymbol{e}_{k}}{\boldsymbol{e}_{i} \cdot (\boldsymbol{e}_{j} \times \boldsymbol{e}_{k})},
+\end{equation*}
+
+\noindent for the combination of subscripts $i, j, k =1, 2, 3$ and its cyclic permutations. A \linebreak similar expression holds for $\boldsymbol{e}_{i}$ in terms of the $\boldsymbol{e}^{i}$-basis. Moreover, it may be shown that $|\boldsymbol{e}_{1} \cdot (\boldsymbol{e}_{2} \times \boldsymbol{e}_{3})| = \sqrt{g}$.
+
+\vspace{2mm}
+
+\textbox{Show that the matrix $[g^{ij}]$ is the inverse of the matrix $[g_{ij}]$. Hence calculate the contravariant components $g^{ij}$ of the metric tensor in cylindrical polar coordinates.}
+
+\vspace{1mm}
+
+\noindent \small Using the index-lowering and index-raising properties of $g_{ij}$ and $g^{ij}$ on an arbitrary vector \linebreak $\boldsymbol{a}$, we find
+\begin{equation*}
+	\delta^i_ka^k = a^i = g^{ij}a_j =g^{ij}g_{jk}a^k.
+\end{equation*}
+
+\noindent But, since $\boldsymbol{a}$ is arbitrary, we must have
+\begin{equation}
+	\label{eq:6}
+	g^{ij}g_{jk} = \delta^{j}_{k}.
+\end{equation}
+
+Denoting the matrix $[g_{ij}]$ by $\latinmodern{G}$ and $[g^{ij}]$ by $\latinmodern{\^G}$, equation (\ref{eq:6}) can be written in matrix form as $\latinmodern{\^GG} = \latinmodern{I}$, where $\latinmodern{I}$ is the unit matrix. Hence $\latinmodern{G}$ and $\latinmodern{\^G}$ are inverse matrices of each \linebreak other.
+
+\pagebreak
+
+Thus, by inverting the matrix $\latinmodern{G}$ in (\ref{eq:3}), we find that the elements $g^{ij}$ are given in cylindrical polar coordinates by
+\begin{equation*}
+	\latinmodern{\^G} = [g^{ij}] =
+	\begin{pmatrix}
+		\hspace{2mm} 1 & 0        & 0 \hspace{2mm} \\
+		\hspace{2mm} 0 & 1/\rho^2 & 0 \hspace{2mm} \\
+		\hspace{2mm} 0 & 0        & 1 \hspace{2mm}
+	\end{pmatrix}. \blacktriangleleft
+\end{equation*}
+
+\normalsize So far we have not considered the components of the metric tensor $g^{i}_{j}$ with one subscript and one superscript. By analogy with (\ref{eq:0}), these mixed components are given by
+\begin{equation*}
+	g^{i}_{j} = \boldsymbol{e}^{i} \cdot \boldsymbol{j}_{j} = \delta^{j}_{i},
+\end{equation*}
+
+\noindent and so the components of $g^{i}_{j}$ are identical to those of $\delta^{i}_{j}$. We may therefore consider the $\delta^{i}_{j}$ to be the mixed components of the metric tensor $\boldsymbol{g}$.
+
+\end{document}
