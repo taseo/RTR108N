@@ -143,15 +143,14 @@ const page = (function() {
 
 	elements.content.appendChild(createParagraph(text.roboVideo));
 
-	const video = document.createElement('iframe');
+	const lazyBtn = document.createElement('button');
 
-	video.setAttribute('src', 'https://www.youtube-nocookie.com/embed/xtLkeXj2gRA?rel=0&amp;showinfo=0');
-	video.setAttribute('width', '560');
-	video.setAttribute('height', '315');
-	video.setAttribute('frameborder', '0');
-	video.classList.add('block', 'm-center');
+	lazyBtn.addEventListener('click', embedVideo);
+	lazyBtn.textContent = 'Skatīt video no pasākuma';
 
-	elements.content.appendChild(video);
+	elements.lazyBtn = lazyBtn;
+
+	elements.content.appendChild(lazyBtn);
     }
 
     function createDocumentLink(fileName, extension, text) {
@@ -165,6 +164,21 @@ const page = (function() {
 	documentLink.classList.add('inline-block', 'document-link');
 
 	return documentLink;
+    }
+
+    function embedVideo() {
+
+	const video = document.createElement('iframe');
+
+	video.setAttribute('src', 'https://www.youtube-nocookie.com/embed/xtLkeXj2gRA?rel=0&amp;showinfo=0');
+	video.setAttribute('width', '560');
+	video.setAttribute('height', '315');
+	video.setAttribute('frameborder', '0');
+	video.classList.add('block', 'm-center');
+
+	elements.content.removeChild(elements.lazyBtn);
+
+	elements.content.appendChild(video);
     }
 
     function createParagraph(text) {
