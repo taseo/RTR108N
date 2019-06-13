@@ -13,7 +13,6 @@ ul {
 }
 
 .container {
-  margin: 0 auto;
   width: 90%;
   max-width: 1400px
 }
@@ -22,8 +21,24 @@ ul {
   text-align: center;
 }
 
+.block {
+  display: block;
+}
+
 .inline-block {
   display: inline-block;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.m-center {
+  margin: 0 auto;
+}
+
+.mr-12 {
+  margin-right: 12px;
 }
 
 .document-card {
@@ -40,4 +55,15 @@ ul {
   margin: 12px 12px 0 0;
   padding: 12px;
   border: 1px solid #eee;
+}
+
+.image {
+  max-width: 480px;
+}
+
+.main-title {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #263238;
 }

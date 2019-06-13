@@ -8,6 +8,11 @@ const page = (function() {
 	'/robotika': buildRobotikaPage
     }
 
+    const text = {
+	roboIntro: 'Vivamus non pulvinar orci. Curabitur volutpat augue est, at condimentum magna mollis ac. Proin odio lorem, tincidunt a enim pulvinar, sollicitudin commodo libero',
+	roboVideo: 'Morbi consectetur id neque ac gravida. Nulla pulvinar ornare sagittis. Phasellus vitae mattis nisl'
+    }
+
     const documentList = [
 	{
 	    title: 'Vienādojumi',
@@ -89,37 +94,21 @@ const page = (function() {
 
     function buildLatexPage(event) {
 
-	const list = document.createElement('UL');
+	const list = document.createElement('ul');
 
 	for (const doc of documentList) {
 
-	    const listItem = document.createElement('LI');
+	    const listItem = document.createElement('li');
 
 	    listItem.classList.add('document-card');
 
-	    const documentName = document.createElement('DIV');
+	    const documentName = document.createElement('div');
 
 	    documentName.textContent = doc.title;
 
-	    const documentLink = document.createElement('A');
-
-	    documentLink.setAttribute('href', `/RTR108N/tex/${doc.fileName}.pdf`);
-	    documentLink.setAttribute('target', '_blank');
-	    documentLink.setAttribute('download', '');
-	    documentLink.textContent = 'pdf';
-	    documentLink.classList.add('inline-block', 'document-link');
-
-	    const srcLink = document.createElement('A');
-
-	    srcLink.setAttribute('href', `/RTR108N/tex/${doc.fileName}.tex`);
-	    srcLink.setAttribute('target', '_blank');
-	    srcLink.setAttribute('download', '');
-	    srcLink.textContent = 'src';
-	    srcLink.classList.add('inline-block', 'document-link');
-
 	    listItem.appendChild(documentName);
-	    listItem.appendChild(documentLink);
-	    listItem.appendChild(srcLink);
+	    listItem.appendChild(createDocumentLink(doc.fileName, 'pdf', 'pdf'));
+	    listItem.appendChild(createDocumentLink(doc.fileName, 'tex', 'src'));
 
 	    list.appendChild(listItem);
 	}
@@ -131,11 +120,65 @@ const page = (function() {
     }
 
     function buildRobotikaPage() {
+
+	elements.content.appendChild(createParagraph(text.roboIntro));
+
+	const picture = document.createElement('picture');
+
+	picture.classList.add('block', 'm-center', 'image')
+
+	const webpSource = document.createElement('source');
+
+	webpSource.setAttribute('srcset', `/RTR108N/img/robotika_2019.webp`);
+	webpSource.setAttribute('type', 'image/webp');
+	picture.appendChild(webpSource);
+
+	const defaultSource = document.createElement('img');
+	defaultSource.setAttribute('src', '/RTR108N/img/robotika_2019.jpg');
+	defaultSource.setAttribute('alt', `Robotika 2019`);
+	defaultSource.classList.add('w-100');
+	picture.appendChild(defaultSource);
+
+	elements.content.appendChild(picture);
+
+	elements.content.appendChild(createParagraph(text.roboVideo));
+
+	const video = document.createElement('iframe');
+
+	video.setAttribute('src', 'https://www.youtube-nocookie.com/embed/xtLkeXj2gRA?rel=0&amp;showinfo=0');
+	video.setAttribute('width', '560');
+	video.setAttribute('height', '315');
+	video.setAttribute('frameborder', '0');
+	video.classList.add('block', 'm-center');
+
+	elements.content.appendChild(video);
+    }
+
+    function createDocumentLink(fileName, extension, text) {
+
+	const documentLink = document.createElement('a');
+
+	documentLink.setAttribute('href', `/RTR108N/tex/${fileName}.${extension}`);
+	documentLink.setAttribute('target', '_blank');
+	documentLink.setAttribute('download', '');
+	documentLink.textContent = text;
+	documentLink.classList.add('inline-block', 'document-link');
+
+	return documentLink;
+    }
+
+    function createParagraph(text) {
+
+	const paragraph = document.createElement('p');
+	paragraph.textContent = text;
+
+	return paragraph;
     }
 
     return {
 	init
     }
+
 }());
 
 page.init();
