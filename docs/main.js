@@ -50,17 +50,18 @@ const page = (function() {
 
     function init() {
 
-	const links = document.querySelectorAll('.js-link');
-
+	elements.links = document.querySelectorAll('.js-link');
 	elements.content = document.getElementById('content');
 
-	for (const link of links) {
+	for (const link of elements.links) {
 	    link.addEventListener('click', handleNavigation);
 	}
 
 	window.onpopstate = () => {
 	    runNavigation(window.location.pathname);
 	}
+
+	runNavigation(window.location.pathname);
     }
 
     function handleNavigation(event) {
@@ -80,7 +81,18 @@ const page = (function() {
 
     function runNavigation(pathName) {
 
+	pathName = pathName.replace('/RTR108N', '');
+
 	routes[pathName]();
+
+	for (const link of elements.links) {
+
+	    if (link.attributes['href'].value === pathName) {
+		link.classList.add('active');
+	    } else {
+		link.classList.remove('active');
+	    }
+	}
 
 	pathName = `/RTR108N${pathName}`;
 

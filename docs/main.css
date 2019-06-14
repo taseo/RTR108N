@@ -103,6 +103,10 @@ ul {
   color: #1565c0;
 }
 
+.nav-link.active {
+  font-weight: 600;
+}
+
 @media (min-width: 480px) {
 
   .nav-link {
