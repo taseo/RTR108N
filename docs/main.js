@@ -9,8 +9,11 @@ const page = (function() {
     }
 
     const text = {
-	roboIntro: 'Vivamus non pulvinar orci. Curabitur volutpat augue est, at condimentum magna mollis ac. Proin odio lorem, tincidunt a enim pulvinar, sollicitudin commodo libero',
-	roboVideo: 'Morbi consectetur id neque ac gravida. Nulla pulvinar ornare sagittis. Phasellus vitae mattis nisl'
+	roboParagraph: 'Vivamus non pulvinar orci. Curabitur volutpat augue est, at condimentum magna mollis ac. Proin odio lorem, tincidunt a enim pulvinar, sollicitudin commodo libero',
+	videoParagraph: 'Morbi consectetur id neque ac gravida. Nulla pulvinar ornare sagittis. Phasellus vitae mattis nisl',
+	latexIntro: 'Semestra laikā sagatavotie LaTex dokumenti',
+	robotikaIntro: 'Atskats uz Robotika 2019',
+	btn: 'Skatīt video no pasākuma'
     }
 
     const documentList = [
@@ -94,13 +97,17 @@ const page = (function() {
 
     function buildLatexPage(event) {
 
+	elements.content.appendChild(createHeading(text.latexIntro));
+
 	const list = document.createElement('ul');
+
+	list.classList.add('grid-container');
 
 	for (const doc of documentList) {
 
 	    const listItem = document.createElement('li');
 
-	    listItem.classList.add('document-card');
+	    listItem.classList.add('card', 'w-100');
 
 	    const documentName = document.createElement('div');
 
@@ -121,36 +128,16 @@ const page = (function() {
 
     function buildRobotikaPage() {
 
-	elements.content.appendChild(createParagraph(text.roboIntro));
+	elements.content.appendChild(createHeading(text.robotikaIntro));
 
-	const picture = document.createElement('picture');
+	const wrap = document.createElement('div');
 
-	picture.classList.add('block', 'm-center', 'image')
+	wrap.classList.add('grid-container');
 
-	const webpSource = document.createElement('source');
+	wrap.appendChild(createFirstColumn());
+	wrap.appendChild(createSecondColumn());
 
-	webpSource.setAttribute('srcset', `/RTR108N/img/robotika_2019.webp`);
-	webpSource.setAttribute('type', 'image/webp');
-	picture.appendChild(webpSource);
-
-	const defaultSource = document.createElement('img');
-	defaultSource.setAttribute('src', '/RTR108N/img/robotika_2019.jpg');
-	defaultSource.setAttribute('alt', `Robotika 2019`);
-	defaultSource.classList.add('w-100');
-	picture.appendChild(defaultSource);
-
-	elements.content.appendChild(picture);
-
-	elements.content.appendChild(createParagraph(text.roboVideo));
-
-	const lazyBtn = document.createElement('button');
-
-	lazyBtn.addEventListener('click', embedVideo);
-	lazyBtn.textContent = 'Skatīt video no pasākuma';
-
-	elements.lazyBtn = lazyBtn;
-
-	elements.content.appendChild(lazyBtn);
+	elements.content.appendChild(wrap);
     }
 
     function createDocumentLink(fileName, extension, text) {
@@ -166,6 +153,56 @@ const page = (function() {
 	return documentLink;
     }
 
+    function createFirstColumn() {
+
+	const colOne = document.createElement('div');
+
+	colOne.classList.add('card');
+	colOne.appendChild(createParagraph(text.roboParagraph));
+
+	const picture = document.createElement('picture');
+
+	picture.classList.add('block', 'm-center', 'w-100', 'max-560');
+
+	const webpSource = document.createElement('source');
+
+	webpSource.setAttribute('srcset', `/RTR108N/img/robotika_2019.webp`);
+	webpSource.setAttribute('type', 'image/webp');
+	picture.appendChild(webpSource);
+
+	const defaultSource = document.createElement('img');
+	defaultSource.setAttribute('src', '/RTR108N/img/robotika_2019.jpg');
+	defaultSource.setAttribute('alt', `Robotika 2019`);
+	defaultSource.classList.add('w-100');
+	picture.appendChild(defaultSource);
+
+	colOne.appendChild(picture);
+
+	return colOne;
+    }
+
+    function createSecondColumn() {
+
+	const colTwo = document.createElement('div');
+
+	colTwo.classList.add('card');
+
+	colTwo.appendChild(createParagraph(text.videoParagraph));
+
+	const lazyBtn = document.createElement('button');
+
+	lazyBtn.addEventListener('click', embedVideo);
+	lazyBtn.classList.add('btn', 'fs-16');
+	lazyBtn.textContent = text.btn;
+
+	elements.colTwo = colTwo;
+	elements.lazyBtn = lazyBtn;
+
+	colTwo.appendChild(lazyBtn);
+
+	return colTwo;
+    }
+
     function embedVideo() {
 
 	const video = document.createElement('iframe');
@@ -174,19 +211,31 @@ const page = (function() {
 	video.setAttribute('width', '560');
 	video.setAttribute('height', '315');
 	video.setAttribute('frameborder', '0');
-	video.classList.add('block', 'm-center');
+	video.classList.add('block', 'm-center', 'w-100','max-560');
 
-	elements.content.removeChild(elements.lazyBtn);
+	elements.colTwo.removeChild(elements.lazyBtn);
 
-	elements.content.appendChild(video);
+	elements.colTwo.appendChild(video);
     }
 
     function createParagraph(text) {
 
 	const paragraph = document.createElement('p');
+
+	paragraph.classList.add('text');
 	paragraph.textContent = text;
 
 	return paragraph;
+    }
+
+    function createHeading(text) {
+
+	const heading = document.createElement('h2');
+
+	heading.classList.add('secondary-title');
+	heading.textContent = text;
+
+	return heading;
     }
 
     return {

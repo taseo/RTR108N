@@ -1,6 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: "Lucida Console", Monaco, monospace;
+  font-size: 16px;
+  color: #263238;
 }
 
 h1 {
@@ -21,6 +32,10 @@ ul {
   text-align: center;
 }
 
+.relative {
+  position: relative;
+}
+
 .block {
   display: block;
 }
@@ -33,37 +48,95 @@ ul {
   width: 100%;
 }
 
+.max-560 {
+  max-width: 560px;
+}
+
 .m-center {
   margin: 0 auto;
 }
 
-.mr-12 {
-  margin-right: 12px;
+.mr-24 {
+  margin-right: 24px;
 }
 
-.document-card {
-  margin-bottom: 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #cfd8dc;
-}
-
-.document-card:last-of-type {
-  border-bottom: 0;
+.card {
+  margin: 0 auto 12px;
+  padding: 24px;
+  border: 1px solid #cfd8dc;
+  border-radius: 12px;
+  box-shadow: 2px 3px 15px #eaeaea;
 }
 
 .document-link {
   margin: 12px 12px 0 0;
   padding: 12px;
-  border: 1px solid #eee;
+  border: 1px solid #007c91;
+  border-radius: 12px;
+  color: #007c91;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
-.image {
-  max-width: 480px;
+.document-link:hover,
+.document-link:active {
+  background: #007c91;
+  color: #fff;
 }
 
 .main-title {
   margin-top: 24px;
   margin-bottom: 12px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #263238;
+}
+
+.secondary-title {
+  margin: 48px 0 24px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-column-gap: 4%;
+}
+
+.nav-link {
+  color: #1565c0;
+}
+
+.nav-link:before {
+  position: absolute;
+  top: 0;
+  right: -12px;
+  bottom: 0;
+  border-right: 1px solid #cfd8dc;
+  display: inline-block;
+  content: '';
+}
+
+.text {
+  min-height: 120px;
+}
+
+.fs-0 {
+  font-size: 0;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.btn {
+  padding: 12px;
+  border: 1px solid #007c91;
+  border-radius: 12px;
+  background: #fff;
+  font-weight: 600;
+  color: #007c91;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:active {
+  color: #fff;
+  background: #007c91;
 }
