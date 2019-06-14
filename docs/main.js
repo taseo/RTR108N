@@ -9,6 +9,9 @@ const page = (function() {
     }
 
     const text = {
+	introTitle: 'Par lapu',
+	aboutPage: 'Šī ir neliela Single Page Application (SPA) lapa; tā uzbūvēta, izmantojot vanilla Javascript',
+	aboutContent: 'Šeit atrodami RTR108N kursa un semestra laikā sagatavotie LaTex dokumenti, kā arī īss ieskats Robotika 2019 pasākumā',
 	roboParagraph: 'Vivamus non pulvinar orci. Curabitur volutpat augue est, at condimentum magna mollis ac. Proin odio lorem, tincidunt a enim pulvinar, sollicitudin commodo libero',
 	videoParagraph: 'Morbi consectetur id neque ac gravida. Nulla pulvinar ornare sagittis. Phasellus vitae mattis nisl',
 	latexIntro: 'Semestra laikā sagatavotie LaTex dokumenti',
@@ -124,6 +127,9 @@ const page = (function() {
     }
 
     function buildHomePage() {
+	elements.content.appendChild(createHeading(text.introTitle));
+	elements.content.appendChild(createParagraph(text.aboutPage));
+	elements.content.appendChild(createParagraph(text.aboutContent));
     }
 
     function buildRobotikaPage() {
@@ -156,9 +162,13 @@ const page = (function() {
     function createFirstColumn() {
 
 	const colOne = document.createElement('div');
+	const paragraph = createParagraph(text.roboParagraph);
+
+	paragraph.classList.add('min-h-120');
 
 	colOne.classList.add('card');
-	colOne.appendChild(createParagraph(text.roboParagraph));
+
+	colOne.appendChild(paragraph);
 
 	const picture = document.createElement('picture');
 
@@ -184,10 +194,13 @@ const page = (function() {
     function createSecondColumn() {
 
 	const colTwo = document.createElement('div');
+	const paragraph = createParagraph(text.videoParagraph);
+
+	paragraph.classList.add('min-h-120');
 
 	colTwo.classList.add('card');
 
-	colTwo.appendChild(createParagraph(text.videoParagraph));
+	colTwo.appendChild(paragraph);
 
 	const lazyBtn = document.createElement('button');
 
